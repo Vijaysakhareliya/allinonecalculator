@@ -3,23 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All in One Calculator — Your Complete Financial Toolkit</title>
-  <meta name="description" content="28+ calculators &amp; expense manager in one free Android app. EMI, SIP, Tax, Budget, Mortgage, Currency &amp; more." />
+  <title>All in One Calculator — Free Finance App | EMI, SIP, Tax &amp; 28+ Tools</title>
+  <meta name="description" content="All in One Calculator by Appnotive Solution — free Android app with 28+ finance calculators, expense tracker, EMI, SIP, tax, mortgage, currency converter &amp; voice calculator. Download on Google Play." />
+  <meta name="keywords" content="all in one calculator, finance calculator, EMI calculator, loan calculator, SIP calculator, tax calculator, expense manager, calculator app, Appnotive Solution" />
+  <meta name="author" content="Appnotive Solution" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vijaysakhareliya.github.io/allinonecalculator/" />
 
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vijaysakhareliya.github.io/allinonecalculator/" />
   <meta property="og:title" content="All in One Calculator — Your Complete Financial Toolkit" />
   <meta property="og:description" content="28+ calculators &amp; expense manager in one free Android app. EMI, SIP, Tax, Budget, Mortgage, Currency &amp; more." />
-  <meta property="og:image" content="assets/screenshots/screenshot_1.png" />
+  <meta property="og:image" content="https://vijaysakhareliya.github.io/allinonecalculator/assets/screenshots/screenshot_1.png" />
+  <meta property="og:site_name" content="All in One Calculator" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="All in One Calculator — Your Complete Financial Toolkit" />
   <meta name="twitter:description" content="28+ calculators &amp; expense manager in one free Android app. EMI, SIP, Tax, Budget, Mortgage, Currency &amp; more." />
-  <meta name="twitter:image" content="assets/screenshots/screenshot_1.png" />
+  <meta name="twitter:image" content="https://vijaysakhareliya.github.io/allinonecalculator/assets/screenshots/screenshot_1.png" />
 
-  <link rel="icon" type="image/webp" href="assets/logo.png" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "All in One Calculator",
+    "operatingSystem": "Android",
+    "applicationCategory": "FinanceApplication",
+    "description": "28+ finance calculators and expense manager — EMI, SIP, tax, budget, mortgage, currency converter and voice calculator in one free app.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.2",
+      "ratingCount": "21",
+      "bestRating": "5"
+    },
+    "author": { "@type": "Organization", "name": "Appnotive Solution" },
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.appnotiveapps.aicalculators.allconverter",
+    "screenshot": "https://vijaysakhareliya.github.io/allinonecalculator/assets/screenshots/screenshot_1.png",
+    "url": "https://vijaysakhareliya.github.io/allinonecalculator/"
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +70,7 @@
       --max-width: 1100px;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
     body {
       font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -103,6 +132,8 @@
       top: 0; left: 0; right: 0;
       z-index: 1000;
       padding: 14px 24px;
+      background: rgba(15, 17, 23, 0.55);
+      backdrop-filter: blur(8px);
       transition: background 0.35s, box-shadow 0.35s, padding 0.35s;
     }
 
@@ -164,6 +195,70 @@
     }
 
     .nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: #fff;
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(15, 17, 23, 0.98);
+      backdrop-filter: blur(16px);
+      padding: 16px 24px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 999;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-menu.open { display: flex; }
+
+    .nav-menu a {
+      color: rgba(255,255,255,0.85);
+      padding: 12px 0;
+      font-size: 1rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-menu .nav-cta-mobile {
+      margin-top: 12px;
+      text-align: center;
+      padding: 14px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 600;
+      border: none;
+    }
 
     /* ── PLAY BUTTON ── */
     .play-store-btn {
@@ -518,7 +613,8 @@
     .screenshots {
       background: linear-gradient(180deg, #0f1117 0%, #1a1f2e 100%);
       color: #fff;
-      overflow: hidden;
+      overflow: visible;
+      padding-bottom: 100px;
     }
 
     .screenshots .section-title { color: #fff; }
@@ -530,6 +626,8 @@
       margin: 0 auto;
       perspective: 1200px;
       height: 520px;
+      padding: 0 12px;
+      z-index: 2;
     }
 
     .showcase-stage {
@@ -539,6 +637,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     .showcase-slide {
@@ -593,8 +692,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      margin-top: 32px;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      margin-top: 40px;
+      padding: 0 8px 8px;
+      position: relative;
+      z-index: 20;
     }
 
     .showcase-btn {
@@ -659,7 +762,12 @@
     }
 
     /* ── REVIEWS ── */
-    .reviews { background: #fff; }
+    .reviews {
+      background: #fff;
+      position: relative;
+      z-index: 1;
+      margin-top: 0;
+    }
 
     .reviews-header {
       display: flex;
@@ -883,7 +991,7 @@
       padding: 0 24px;
     }
 
-    .faq-item.open .faq-answer { max-height: 200px; padding: 0 24px 20px; }
+    .faq-item.open .faq-answer { max-height: 320px; padding: 0 24px 20px; }
 
     .faq-answer p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
 
@@ -1005,6 +1113,8 @@
     }
 
     @media (min-width: 768px) {
+      .nav-toggle { display: none; }
+      .nav-menu { display: none !important; }
       .nav-links { display: flex; }
       .features-grid { grid-template-columns: repeat(3, 1fr); }
       .stats-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1027,13 +1137,55 @@
       .hero-phone .phone-frame { border-radius: 36px; padding: 14px; }
     }
 
+    @media (max-width: 767px) {
+      .nav-brand-text { display: none; }
+      .nav-cta { display: none; }
+    }
+
     @media (max-width: 599px) {
-      section { padding: 48px 20px; }
-      .hero { padding: 100px 20px 56px; min-height: auto; }
-      .cta { padding: 48px 20px; }
-      .showcase-carousel { height: 420px; }
-      .showcase-slide { width: 200px; }
+      section { padding: 48px 16px; }
+      .container { padding: 0 16px; }
+      .hero { padding: 88px 16px 48px; min-height: auto; }
+      .cta { padding: 48px 16px; }
+      .section-subtitle { margin-bottom: 32px; font-size: 0.95rem; }
+      .section-title { font-size: 1.4rem; }
+      .hero-headline { font-size: 1.85rem; }
+      .hero-subheadline { font-size: 0.95rem; margin-bottom: 28px; }
+      .hero-badges { gap: 8px; }
+      .pill-badge { font-size: 0.75rem; padding: 5px 10px; }
+      .play-store-btn img { height: 50px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card { padding: 22px 18px; }
+      .showcase-carousel { height: 380px; padding: 0 8px; }
+      .showcase-slide { width: min(200px, 72vw); }
+      .showcase-controls { gap: 10px; margin-top: 28px; }
+      .showcase-progress { display: none; }
+      .showcase-btn { width: 44px; height: 44px; font-size: 1.1rem; flex-shrink: 0; }
+      .showcase-dots { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; }
+      .screenshots { padding-bottom: 72px; }
       .rating-summary { flex-direction: column; text-align: center; padding: 20px; }
+      .rating-big { font-size: 2.75rem; }
+      .stat-number { font-size: 1.6rem; }
+      .stat-item { padding: 24px 12px; }
+      .review-card { padding: 20px; }
+      .review-card::before { font-size: 3rem; }
+      .steps-grid { gap: 16px; }
+      .step-card { padding: 20px; flex-direction: column; gap: 14px; }
+      .update-card { padding: 24px 20px; }
+      .faq-question { padding: 16px 18px; font-size: 0.95rem; }
+      .marquee-item { font-size: 0.8rem; padding: 0 20px; }
+    }
+
+    @media (min-width: 600px) and (max-width: 767px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .showcase-carousel { height: 460px; }
+      .showcase-slide { width: 220px; }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .hero .container { gap: 32px; }
+      .hero-phone { width: 240px; }
+      .showcase-carousel { height: 500px; }
     }
   </style>
 </head>
@@ -1044,7 +1196,7 @@
     <div class="nav-inner">
       <a href="#top" class="nav-brand">
         <img src="assets/logo.png" alt="" width="36" height="36" aria-hidden="true" />
-        All in One Calculator
+        <span class="nav-brand-text">All in One Calculator</span>
       </a>
       <ul class="nav-links">
         <li><a href="#features">Features</a></li>
@@ -1054,6 +1206,17 @@
       </ul>
       <a href="https://play.google.com/store/apps/details?id=com.appnotiveapps.aicalculators.allconverter"
          target="_blank" rel="noopener noreferrer" class="nav-cta">Download Free</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-menu" id="navMenu" aria-hidden="true">
+      <a href="#features">Features</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.appnotiveapps.aicalculators.allconverter"
+         target="_blank" rel="noopener noreferrer" class="nav-cta-mobile">Download Free</a>
     </div>
   </nav>
 
@@ -1085,7 +1248,7 @@
           <span class="pill-badge">Finance Category</span>
         </div>
 
-        <h1 class="hero-headline animate-in animate-delay-2">Your Complete Financial Toolkit</h1>
+        <h1 class="hero-headline animate-in animate-delay-2">All in One Calculator — Your Complete Financial Toolkit</h1>
         <p class="hero-subheadline animate-in animate-delay-3">28+ professional calculators &amp; expense tracker — EMI, SIP, Tax, Budget, Mortgage, Currency &amp; more in one powerful app.</p>
 
         <div class="animate-in animate-delay-4">
@@ -1112,19 +1275,19 @@
   <div class="stats-bar">
     <div class="stats-bar-inner">
       <div class="stat-item fade-on-scroll">
-        <div class="stat-number" data-count="28" data-suffix="+">0</div>
+        <div class="stat-number" data-count="28" data-suffix="+">28+</div>
         <div class="stat-label">Calculator Tools</div>
       </div>
       <div class="stat-item fade-on-scroll" data-delay="1">
-        <div class="stat-number" data-count="10000" data-suffix="+">0</div>
+        <div class="stat-number" data-count="10" data-suffix="K+">10K+</div>
         <div class="stat-label">Downloads</div>
       </div>
       <div class="stat-item fade-on-scroll" data-delay="2">
-        <div class="stat-number" data-count="150" data-suffix="+">0</div>
+        <div class="stat-number" data-count="150" data-suffix="+">150+</div>
         <div class="stat-label">Currencies</div>
       </div>
       <div class="stat-item fade-on-scroll" data-delay="3">
-        <div class="stat-number" data-count="4.2" data-decimal="1">0</div>
+        <div class="stat-number" data-count="4.2" data-decimal="1">4.2</div>
         <div class="stat-label">Play Store Rating</div>
       </div>
     </div>
@@ -1458,7 +1621,7 @@
         <a href="mailto:appnotive.solution@gmail.com">Support</a>
       </nav>
       <p class="footer-rating">⭐ 4.2 on Google Play</p>
-      <p class="footer-copy">© 2025 Appnotive Solution. All rights reserved.</p>
+      <p class="footer-copy">© 2026 Appnotive Solution. All rights reserved.</p>
     </div>
   </footer>
 
@@ -1475,13 +1638,12 @@
       ];
 
       var SCREENSHOTS = [
-        { src: "assets/screenshots/screenshot_1.png", alt: "All calculators in one place", caption: "All calculators in one tap" },
-        { src: "assets/screenshots/screenshot_2.png", alt: "Loan and finance tools", caption: "Loan & finance calculators" },
-        { src: "assets/screenshots/screenshot_3.png", alt: "Voice calculator feature", caption: "Voice-powered calculations" },
-        { src: "assets/screenshots/screenshot_4.png", alt: "App interface overview", caption: "Clean modern interface" },
-        { src: "assets/screenshots/screenshot_5.png", alt: "Financial planning tools", caption: "Investment & savings tools" },
-        { src: "assets/screenshots/screenshot_6.png", alt: "Comprehensive calculator suite", caption: "28+ professional tools" },
-        { src: "assets/screenshots/screenshot_7.png", alt: "Features overview", caption: "Everything you need" }
+        { src: "assets/screenshots/screenshot_1.png", alt: "All in One Calculator — all calculators in one place", caption: "All calculators in one tap" },
+        { src: "assets/screenshots/screenshot_3.png", alt: "All in One Calculator voice calculator feature", caption: "Voice-powered calculations" },
+        { src: "assets/screenshots/screenshot_4.png", alt: "All in One Calculator app interface", caption: "Clean modern interface" },
+        { src: "assets/screenshots/screenshot_5.png", alt: "All in One Calculator financial planning tools", caption: "Investment & savings tools" },
+        { src: "assets/screenshots/screenshot_6.png", alt: "All in One Calculator comprehensive suite", caption: "28+ professional tools" },
+        { src: "assets/screenshots/screenshot_7.png", alt: "All in One Calculator features overview", caption: "Everything you need" }
       ];
 
       function stars(n) {
@@ -1546,26 +1708,43 @@
       var dots = dotsEl.querySelectorAll('.showcase-dot');
       var progressBar = document.getElementById('showcaseProgress');
 
+      function isMobileView() { return window.innerWidth < 600; }
+      function isTabletView() { return window.innerWidth >= 600 && window.innerWidth < 768; }
+
       function layoutSlides() {
-        var total = slides.length;
+        var mobile = isMobileView();
+        var slideGap = mobile ? 0 : (isTabletView() ? 150 : 220);
+        var maxVisible = mobile ? 0 : 2;
+
         slides.forEach(function (slide, i) {
           var offset = i - current;
           var abs = Math.abs(offset);
           var sign = offset < 0 ? -1 : 1;
 
-          if (abs > 2) {
+          if (abs > maxVisible) {
             slide.style.opacity = '0';
             slide.style.pointerEvents = 'none';
-            slide.style.transform = 'translateX(' + (sign * 400) + 'px) scale(0.5) rotateY(' + (sign * 40) + 'deg)';
+            slide.style.transform = mobile
+              ? 'translateX(' + (offset * 280) + 'px) scale(0.85)'
+              : 'translateX(' + (sign * 400) + 'px) scale(0.5) rotateY(' + (sign * 40) + 'deg)';
             slide.classList.remove('active');
             return;
           }
 
-          slide.style.pointerEvents = abs === 0 ? 'auto' : 'auto';
-          slide.style.opacity = abs === 0 ? '1' : String(0.55 - abs * 0.15);
+          if (mobile) {
+            slide.style.pointerEvents = abs === 0 ? 'auto' : 'none';
+            slide.style.opacity = abs === 0 ? '1' : '0';
+            slide.style.zIndex = abs === 0 ? '10' : '1';
+            slide.style.transform = 'translateX(' + (offset * 280) + 'px) scale(' + (abs === 0 ? 1 : 0.85) + ')';
+            slide.classList.toggle('active', abs === 0);
+            return;
+          }
+
+          slide.style.pointerEvents = 'auto';
+          slide.style.opacity = abs === 0 ? '1' : String(Math.max(0.35, 0.55 - abs * 0.15));
           slide.style.zIndex = String(10 - abs);
 
-          var tx = offset * 220;
+          var tx = offset * slideGap;
           var scale = abs === 0 ? 1 : 0.78 - abs * 0.08;
           var rotY = offset * -18;
           var tz = abs === 0 ? 0 : -80 * abs;
@@ -1641,18 +1820,25 @@
       }
 
       /* ── Animated counters ── */
+      function formatCounter(val, decimals, suffix) {
+        if (decimals) return val.toFixed(decimals) + suffix;
+        if (suffix === 'K+') return Math.floor(val) + suffix;
+        return Math.floor(val).toLocaleString() + suffix;
+      }
+
       function animateCounter(el) {
+        if (el.dataset.animated) return;
+        el.dataset.animated = '1';
         var target = parseFloat(el.getAttribute('data-count'));
         var suffix = el.getAttribute('data-suffix') || '';
         var decimals = parseInt(el.getAttribute('data-decimal') || '0', 10);
-        var duration = 1800;
-        var start = performance.now();
+        var duration = 1200;
+        var startTime = performance.now();
 
         function tick(now) {
-          var t = Math.min((now - start) / duration, 1);
+          var t = Math.min((now - startTime) / duration, 1);
           var eased = 1 - Math.pow(1 - t, 3);
-          var val = target * eased;
-          el.textContent = (decimals ? val.toFixed(decimals) : Math.floor(val).toLocaleString()) + suffix;
+          el.textContent = formatCounter(target * eased, decimals, suffix);
           if (t < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -1673,9 +1859,34 @@
 
       /* ── Sticky nav ── */
       var nav = document.getElementById('siteNav');
+      var navToggle = document.getElementById('navToggle');
+      var navMenu = document.getElementById('navMenu');
+
+      function closeNavMenu() {
+        navToggle.classList.remove('open');
+        navMenu.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.setAttribute('aria-hidden', 'true');
+      }
+
+      navToggle.addEventListener('click', function () {
+        var open = navMenu.classList.toggle('open');
+        navToggle.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      });
+
+      navMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', closeNavMenu);
+      });
+
       window.addEventListener('scroll', function () {
         nav.classList.toggle('scrolled', window.scrollY > 60);
       }, { passive: true });
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) closeNavMenu();
+      });
 
       /* ── FAQ accordion ── */
       document.querySelectorAll('.faq-question').forEach(function (btn) {
